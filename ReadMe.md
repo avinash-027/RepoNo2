@@ -1,6 +1,8 @@
-﻿## Adding a Remote Origin is for linking your local repository to a new or existing remote repository to push and pull changes.
+﻿## Adding a Remote Origin
 
-### 1. Create a new repository on the command line
+Adding a Remote Origin is for linking your local repository to a new or existing remote repository to push and pull changes.
+
+### 1. Create a New Repository on the command line
 
         echo "# RepoNo2" >> README.md
         git init
@@ -16,7 +18,7 @@
         git remote add origin https://github.com/avinash-027/RepoNo2.git
         git push -u origin main
 
-### 2. Push an existing repository from the command line
+### 2. Push an Existing Repository from the command line
 
         git remote add origin https://github.com/avinash-027/RepoNo2.git
         git branch -M main
@@ -137,7 +139,7 @@ Note:
 - git log does not **show** [Unnamed Branches](#unnamed-branches)
 - Press “q” to close the git log (if needed)
 
-### Alias
+### Git Alias
 
 ```
 git config --global alias.s "status"
@@ -162,6 +164,8 @@ git config --global alias.co "checkout"
 Conclusion:
 - In .gitignore, you can exclude files from being tracked by Git, but you can always explicitly include files with the ! rule. If you want README.md to be tracked even though it's ignored, simply unignore it in the .gitignore file using !README.md, then stage and commit it.
 
+#### If You Add README.md to .gitignore After Tracking It?
+
 1. If README.md Is Already Tracked and Then Added to .gitignore:
 
    Once a file like README.md has been added to the Git repository and is being tracked (i.e., it has been committed at least once), adding it to .gitignore will not stop it from being tracked. Git will continue to track it as normal.
@@ -181,7 +185,9 @@ Conclusion:
 
 The .gitignore file only affects files that have not yet been tracked by Git. It prevents Git from starting to track new files or changes to files that haven't been added to the repository yet.
 
-#### ➡ Multiple .gitignore files are fine as long as they’re in different directories.
+#### Multiple .gitignore Files
+
+**➡ Multiple .gitignore files are fine as long as they’re in different directories.**
 ```
 /my-project
   ├── .gitignore    # Applies to files in the root and all subdirectories
@@ -197,14 +203,14 @@ The .gitignore file only affects files that have not yet been tracked by Git. It
   │   └── .gitignore    # Ignores build artifacts like *.o and *.class files
   └── build/
 ```
-#### ➡ Multiple .gitignore files in the same directory is not recommended and doesn't work as intended.
+**➡ Multiple .gitignore files in the same directory is not recommended and doesn't work as intended.**
 ```
 /my-project
   ├── .gitignore       # First .gitignore
   ├── .gitignore       # Second .gitignore (ignored by Git)
 ```
 
-### removes the .git directory
+### Removing the Git Directory
 
 ```
 rm -rf .git
@@ -248,7 +254,7 @@ If you're in a detached state, you won’t see any branch with HEAD pointing to 
 
 This will create a new branch and attach it to your current commit, effectively giving a name to your "unnamed" branch.
  
-### Why git commit --amend Creates a New Commit...
+### Why `git commit --amend` Creates a New Commit
 
 The reason a new commit is being created despite using git commit --amend is that your previous commit (with the message "Initial Commit") **was already pushed to the remote repository** (origin/main). Once you amend a commit that has already been pushed, Git treats the amended commit as a new commit because it changes the commit hash, and your local history diverges from the remote history.
 
